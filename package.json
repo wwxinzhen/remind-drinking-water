@@ -1,0 +1,93 @@
+{
+  	"name": "remind-drinking-water",
+	"displayName": "remind-drinking-water",
+	"description": "this is a extension program in order to remind you to drink water",
+	"keywords": ["remind", "drink", "water"],
+	"version": "1.0.1",
+	"publisher": "wuxz",
+	"engines": {
+		"vscode": "^1.68.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "drink.png",
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration":[
+			{
+				"type":"object",
+				"title": "remind-drinking-water",
+				"properties": {
+					"remind-drinking-water.showTime":{
+						"type":"boolean",
+						"default":true,
+						"description": "是否在每次启动时显示时间"
+					},
+					"remind-drinking-water.remindTime":{
+						"type":"integer",
+						"enum": [2, 3, 4],
+						"default":1,
+						"description": "设置提醒喝水间隔时间（单位：小时）"
+					},
+					"remind-drinking-water.UserName":{
+						"type":"string",
+						"default":"狗蛋",
+						"description": "设置提示主语"
+					},
+					"remind-drinking-water.ShowWorkTime":{
+						"type":"boolean",
+						"default":false,
+						"description": "提示工作时长"
+					}
+				}
+			}
+		],
+		"commands": [
+			{
+				"command": "remind.water",
+				"title": "remind water"
+			}
+		],
+		"keybindings":[
+			{
+				"command": "remind.water",
+				"key": "ctrl+f10",
+				"when": "editorTextFocus"
+			}
+		],
+		"viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "drink-water",
+                    "title": "remind-drink-water",
+                    "icon": "C:\\Users\\wuxz\\test\\drink(1).png"
+                }
+            ]
+        }
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.68.0",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "16.x",
+		"@typescript-eslint/eslint-plugin": "^5.27.0",
+		"@typescript-eslint/parser": "^5.27.0",
+		"eslint": "^8.16.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0",
+		"typescript": "^4.7.2",
+		"@vscode/test-electron": "^2.1.3"
+	}
+}
