@@ -1,10 +1,12 @@
 <!--
- * @Author: wuxz:
+ * @Author: wuxz
  * @Date: 2022-07-05 10:28:41
  * @LastEditors: error: git config user.name && git config user.email & please set dead value or install git
- * @LastEditTime: 2022-07-07 16:25:24
+ * @LastEditTime: 2022-07-18 17:00:19
  * @FilePath: \test\README.md
+
 -->
+
 这个插件是用来提示你喝水和休息的，为了你能在工作的时候多多关注身体健康。
 
 ·通常对于成年人来讲,每天饮水量应该在1500-2000mL最为合适。

@@ -2,13 +2,14 @@
  * @Author: wuxz:
  * @Date: 2022-07-05 10:28:41
  * @LastEditors: error: git config user.name && git config user.email & please set dead value or install git
- * @LastEditTime: 2022-07-15 16:32:25
+ * @LastEditTime: 2022-07-18 16:52:29
  * @FilePath: \test\src\extension.ts
  */
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import { time } from 'console';
 import * as vscode from 'vscode';
+import { workerData } from 'worker_threads';
 
 //work time
 var count:any = 0; 
@@ -43,6 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('remind.water', () => {
+		vscode.window.showInformationMessage("插件启动成功");
 		clearInterval(gid1);
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
