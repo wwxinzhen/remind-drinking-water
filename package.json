@@ -7,7 +7,7 @@
   	  	"drink",
   	  	"water"
   	],
-  	"version": "1.0.2",
+  	"version": "2.0.1",
   	"publisher": "wuxz",
   	"engines": {
   	  	"vscode": "^1.68.0"
@@ -43,14 +43,23 @@
   	  	  	  	  	},
   	  	  	  	  	"remind-drinking-water.UserName": {
   	  	  	  	  	  	"type": "string",
-  	  	  	  	  	  	"default": "狗蛋",
+  	  	  	  	  	  	"default": "老板",
   	  	  	  	  	  	"description": "设置提示主语"
   	  	  	  	  	},
   	  	  	  	  	"remind-drinking-water.ShowWorkTime": {
   	  	  	  	  	  	"type": "boolean",
   	  	  	  	  	  	"default": false,
   	  	  	  	  	  	"description": "提示工作时长"
-  	  	  	  	  	}
+  	  	  	  	  	},
+					"remind-drinking-water.ShowWordOrPanel":{
+						"type":"string",
+						"enum":[
+							"word",
+							"panel"
+						],
+						"default":"panel",
+						"description": "选择用文字提示还是图像提示"
+					}
   	  	  	  	}
   	  	  	}
   	  	],
@@ -66,16 +75,7 @@
   	  	  	  	"key": "ctrl+f10",
   	  	  	  	"when": "editorTextFocus"
   	  	  	}
-  	  	],
-  	  	"viewsContainers": {
-  	  	  	"activitybar": [
-  	  	  	  	{
-  	  	  	  	  	"id": "drink-water",
-  	  	  	  	  	"title": "remind-drink-water",
-  	  	  	  	  	"icon": "C:\\Users\\wuxz\\test\\drink(1).png"
-  	  	  	  	}
-  	  	  	]
-  	  	}
+  	  	]
   	},
   	"scripts": {
   	  	"vscode:prepublish": "npm run compile",
