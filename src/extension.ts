@@ -2,7 +2,7 @@
  * @Author: wuxz:
  * @Date: 2022-07-05 10:28:41
  * @LastEditors: error: git config user.name && git config user.email & please set dead value or install git
- * @LastEditTime: 2022-07-27 14:34:20
+ * @LastEditTime: 2022-09-06 09:36:06
  * @FilePath: \test\src\extension.ts
  */
 // The module 'vscode' contains the VS Code extensibility API
@@ -22,6 +22,7 @@ var time_par:any = 1000 * 3600;
 var panel_dispose_time = 5;
 //picture path
 var picture_path:string = 'panel_icon.png';
+var gif_path:string  = 'IMG_5179.GIF';
 //warnning info
 var warning_info = ["不喝电脑马上就关机", 
 					"不喝老婆就跟别人跑了",
@@ -43,10 +44,11 @@ export function activate(context: vscode.ExtensionContext) {
 
 	var config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('remind-drinking-water');
 	var showid:any = config.get('showTime');
-	var currentPanel:any = undefined;
-	const onDiskPath = vscode.Uri.file(path.join(context.extensionPath, '.', picture_path));
-    const pic_path_uri = onDiskPath.with({ scheme: 'vscode-resource' });
-	console.log(pic_path_uri);
+	//var currentPanel:any = undefined;
+	let currentPanel: vscode.WebviewPanel | undefined = undefined;
+	//const onDiskPath = vscode.Uri.file(path.join(context.extensionPath, '.', picture_path));
+    const onDiskPath = vscode.Uri.file(path.join(context.extensionPath, '.', gif_path));
+	const pic_path_uri = onDiskPath.with({ scheme: 'vscode-resource' });
 	if(showid === true)
 	{
 		vscode.window.showInformationMessage(Date());
@@ -185,7 +187,7 @@ function getWebviewContent(pic_path:vscode.Uri, name:any):string
 				#yoyo{
 					position:absolute;
 					bottom:50px;
-					right:-90px;
+					right:0px;
 					opacity:1;
 				}
 				#yoyo:hover{
